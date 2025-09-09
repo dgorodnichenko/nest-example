@@ -65,22 +65,22 @@ Retrieve a list of all employees in the system.
 #### Endpoint: `GET /employees`
 #### URL:
 ```bash
-http://localhost:3000/employees
+http://localhost:3000/api/employees
 ```
 #### Query parameters:
 role (optional): Filter employees by role (ADMIN, ENGINEER or INTERN):
 ```bash
-http://localhost:3000/employees?role=INTERN
+http://localhost:3000/api/employees?role=INTERN
 ```
 #### Example requests:
 ```bash
 #All employees
-curl -X GET http://localhost:3000/employees
+curl -X GET http://localhost:3000/api/employees
 
 #Filter by role
-curl -X GET http://localhost:3000/employees?role=INTERN
-curl -X GET http://localhost:3000/employees?role=ENGINEER
-curl -X GET http://localhost:3000/employees?role=ADMIN
+curl -X GET http://localhost:3000/api/employees?role=INTERN
+curl -X GET http://localhost:3000/api/employees?role=ENGINEER
+curl -X GET http://localhost:3000/api/employees?role=ADMIN
 ```
 
 #### Example response:
@@ -110,7 +110,7 @@ Add a new employee to the system.
 #### Endpoint: `POST /employees`
 #### URL:
 ```bash
-http://localhost:3000/employees
+http://localhost:3000/api/employees
 ```
 #### Headers:
 ```bash
@@ -127,7 +127,7 @@ Content-Type: application/json
 
 #### Example request:
 ```bash
-curl -X POST http://localhost:3000/employees \
+curl -X POST http://localhost:3000/api/employees \
   -H "Content-Type: application/json" \
   -d '{
     "name": "alice",
@@ -175,11 +175,11 @@ Retrieve a specific employee by their ID.
 #### Endpoint: `GET /employees/:id`
 #### URL:
 ```bash
-http://localhost:3000/employees/{id}
+http://localhost:3000/api/employees/{id}
 ```
 #### Example request:
 ```bash
-curl -X GET http://localhost:3000/employees/1
+curl -X GET http://localhost:3000/api/employees/1
 ```
 #### Example response:
 ```bash
@@ -205,7 +205,7 @@ Update an existing employee's information.
 #### Endpoint: `PATCH /employees/:id`
 #### URL:
 ```bash
-http://localhost:3000/employees/{id}
+http://localhost:3000/api/employees/{id}
 ```
 #### Headers:
 ```bash
@@ -221,7 +221,7 @@ Content-Type: application/json
 ```
 #### Example request:
 ```bash
-curl -X PATCH http://localhost:3000/employees/1 \
+curl -X PATCH http://localhost:3000/api/employees/1 \
   -H "Content-Type: application/json" \
   -d '{
     "name": "kevin",
@@ -270,11 +270,11 @@ Remove an employee from the system.
 #### Endpoint: `DELETE /employees/:id`
 #### URL:
 ```bash
-http://localhost:3000/employees/{id}
+http://localhost:3000/api/employees/{id}
 ```
 #### Example request:
 ```bash
-curl -X DELETE http://localhost:3000/employees/1
+curl -X DELETE http://localhost:3000/api/employees/1
 ```
 #### Example response:
 ```bash
