@@ -28,7 +28,7 @@ It provides a simple CRUD API for managing users in the database.
 Clone the repo and install dependencies:
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/dgorodnichenko/nest-example
 cd nest-example
 npm install
 ```
