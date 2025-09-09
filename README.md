@@ -2,6 +2,7 @@
 
 A small backend service built with **[NestJS](https://nestjs.com/)** and **[Prisma](https://www.prisma.io/)**.  
 This project demonstrates a modular NestJS setup with Prisma for database access, validation with `class-validator` and full TypeScript support.
+It provides a simple CRUD API for managing users in the database.
 
 ---
 
