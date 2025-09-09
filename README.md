@@ -118,11 +118,9 @@ Content-Type: application/json
 ```
 #### Request body:
 ```bash
-{
-  "name": "alice",
-  "email": "alice@email.com",
-  "role": "INTERN",
-}
+- name (string, required) — Full name of the employee, empty name not allowed
+- email (string, required) — Must be a valid email, must be unique in the database
+- role (string, required) — Allowed values: INTERN, STAFF, MANAGER
 ```
 
 #### Example request:
@@ -211,13 +209,11 @@ http://localhost:3000/api/employees/{id}
 ```bash
 Content-Type: application/json
 ```
-#### Request body: (Only include fields you want to update)
+#### Request body (all fields optional):
 ```bash
-{
-  "name": "kevin",
-  "email": "kevin@email.com",
-  "role": "ENGINEER",
-}
+- name (string) — Full name of the employee, empty name not allowed
+- email (string) — Must be a valid email, must be unique in the database
+- role (string) — Allowed values: INTERN, STAFF, MANAGER
 ```
 #### Example request:
 ```bash
