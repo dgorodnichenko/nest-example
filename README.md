@@ -2,7 +2,7 @@
 
 A small backend service built with **[NestJS](https://nestjs.com/)** and **[Prisma](https://www.prisma.io/)**.  
 This project demonstrates a modular NestJS setup with Prisma for database access, validation with `class-validator` and full TypeScript support.
-It provides a simple CRUD API for managing users in the database.
+It provides a simple CRUD API for managing employees in the database.
 
 ---
 
@@ -10,7 +10,7 @@ It provides a simple CRUD API for managing users in the database.
 
 - **NestJS 11** – modular architecture for scalable backends  
 - **Prisma ORM** – type-safe database access  
-- **Validation** – using `class-validator` and `class-transformer`  
+- **Validation** – using `class-validator`
 - **Throttling** – request rate-limiting with `@nestjs/throttler`   
 - **Hot Reload** – via `start:dev` for development  
 
@@ -22,6 +22,17 @@ It provides a simple CRUD API for managing users in the database.
 - [Prisma](https://www.prisma.io/)  
 - [TypeScript](https://www.typescriptlang.org/)  
 ---
+
+## Key files explained
+- **`main.ts`** - Application bootstrap file, starts the server
+- **`app.module.ts`** - Root module that imports all feature modules
+- **`database/database.service.ts`** - Prisma client wrapper with connection management
+- **`database/database.module.ts`** - Database module that exports DatabaseService for other modules
+- **`employees/employees.controller.ts`** - Handles HTTP requests and responses
+- **`employees/employees.service.ts`** - Contains business logic and database operations
+- **`schema.prisma`** - Database schema and model definition
+- **`users/dto/createEmployeeDto.ts`** - Defines structure and validation rules for creating new employees (name, email, role)
+- **`users/dto/updateEmployeeDto.ts`** - Defines structure and validation rules for updating existing employees (all fields optional)
 
 ## Installation
 
@@ -120,7 +131,7 @@ Content-Type: application/json
 ```bash
 - name (string, required) — Full name of the employee, empty name not allowed
 - email (string, required) — Must be a valid email, must be unique in the database
-- role (string, required) — Allowed values: INTERN, STAFF, MANAGER
+- role (string, required) — Allowed values: INTERN, ENGINEER, ADMIN
 ```
 
 #### Example request:
@@ -130,7 +141,7 @@ curl -X POST http://localhost:3000/api/employees \
   -d '{
     "name": "alice",
     "email": "alice@email.com",
-    "role": "INTERN",
+    "role": "INTERN"
   }'
 ```
 #### Example response:
@@ -213,7 +224,7 @@ Content-Type: application/json
 ```bash
 - name (string) — Full name of the employee, empty name not allowed
 - email (string) — Must be a valid email, must be unique in the database
-- role (string) — Allowed values: INTERN, STAFF, MANAGER
+- role (string) — Allowed values: INTERN, ENGINEER, ADMIN
 ```
 #### Example request:
 ```bash
@@ -221,7 +232,7 @@ curl -X PATCH http://localhost:3000/api/employees/1 \
   -H "Content-Type: application/json" \
   -d '{
     "name": "kevin",
-    email": "kevin@email.com",
+    "email": "kevin@email.com",
     "role": "ENGINEER"
   }'
 ```
